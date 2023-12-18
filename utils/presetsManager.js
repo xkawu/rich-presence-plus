@@ -1,3 +1,5 @@
+const fs = require("fs");
+
 const getPresets = async () => {
     try {
         const dir = fs.readdirSync("./presets");
@@ -35,7 +37,9 @@ const getPresets = async () => {
                 JSON.stringify(defaultPreset)
             );
         } catch (e) {
-            throw new Error('Unable to create/write "./presets/config.json"');
+            throw new Error(
+                'An error occurred when creating "./presets/config.json"'
+            );
         }
 
         const dir = fs.readdirSync("./presets");

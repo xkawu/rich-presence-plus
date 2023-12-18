@@ -1,4 +1,5 @@
 const chalk = require("chalk");
+const config = require("./config.js");
 
 const title = () => {
     return chalk.red(
@@ -6,4 +7,8 @@ const title = () => {
     );
 };
 
-module.exports = { title };
+const credits = () => {
+    return `Rich Presence +  :::  created by kxwu  :::  v${config.getVersion()}`;
+};
+
+module.exports = { title, credits };

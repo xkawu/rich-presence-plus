@@ -10,12 +10,103 @@ const intervalPresetsInMs = 15000; // DO NOT GO BELOW 15s OR U WILL BE RATE LIMI
 const ascii = require("./utils/asciis.js");
 const updater = require("./utils/updater.js");
 const config = require("./utils/config.js");
+const presetsManager = require("./utils/presetsManager.js");
+const activityHandler = require("./utils/activityHandler.js");
 
-console.log(updater.checkForUpdate());
+const consoleKit = new ConsoleKit();
+
+process.title = "Rich Presence +";
+console.clear();
+console.log(ascii.title());
+consoleKit.comment(ascii.credits());
+console.log(" ");
+
+const home = async () => {
+    consoleKit.startLoading("Checking presets...");
+
+    const dirs = await presetsManager.getPresets();
+    consoleKit.stopLoading(true);
+    consoleKit.check(`[${chalk.green(dirs.length)}] preset(s) found.`);
+
+    consoleKit.startLoading("Checking config.json...");
+
+    const configData = await config.getConfig();
+    consoleKit.stopLoading(true);
+
+    if (configData.hasBeenCreated) {
+        consoleKit.info(
+            "You need to configure config.json! See: https://github.com/xkawu/rich-presence-plus for help."
+        );
+        const appId = await consoleKit.prompt("Application ID");
+        let staticPreset = null;
+
+        const askMode = async () => {
+            const mode = await consoleKit.prompt(
+                "Rich Presence Mode [static/dynamic]"
+            );
+
+            if (mode === "static") {
+                staticPreset = await consoleKit.prompt(
+                    "Path to the static preset (optional)"
+                );
+                return mode;
+            } else if (mode === "dynamic") {
+                return mode;
+            } else {
+                return askMode();
+            }
+        };
+        const mode = await askMode();
+
+        if (staticPreset !== null) {
+            if (!staticPreset.trim()) staticPreset = null;
+        }
+
+        consoleKit.startLoading("Editing config.json...");
+        await config.editConfig({ appId, mode, staticPreset });
+        consoleKit.stopLoading(true);
+
+        consoleKit.check("config.json has been edited.");
+    } else {
+        consoleKit.check("config.json has been found.");
+    }
+
+    activityHandler.start(dirs, consoleKit);
+};
+
+const checkVersion = async () => {
+    consoleKit.startLoading("Checking for updates...");
+
+    const updateData = await updater.checkForUpdate();
+
+    if (updateData.isUpToDate) {
+        consoleKit.stopLoading(true);
+        consoleKit.check(
+            "Great! You have the last version of Rich Presence +."
+        );
+
+        setTimeout(() => {
+            home();
+        }, 1000);
+    } else {
+        consoleKit.stopLoading(true);
+        consoleKit.x(
+            `It's time to update! ${chalk.bold(
+                config.getVersion()
+            )} -> ${chalk.bold(updateData.version)}`
+        );
+        consoleKit.info(
+            "Visit https://github.com/xkawu/rich-presence-plus to get the update."
+        );
+
+        process.exit();
+    }
+};
+checkVersion();
 
 return;
+/*
 process.title = "Rich Presence +";
-const consoleKit = new ConsoleKit();
 
 startup();
 async function startup() {
@@ -280,3 +371,4 @@ async function startRPC() {
         }
     });
 }
+*/

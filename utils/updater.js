@@ -10,9 +10,15 @@ const checkForUpdate = async () => {
                 const version = config.getVersion();
 
                 if (version === body.version) {
-                    return "up to date";
+                    return {
+                        isUpToDate: true,
+                        version: body.version,
+                    };
                 } else {
-                    return "need to update";
+                    return {
+                        isUpToDate: false,
+                        version: body.version,
+                    };
                 }
             } else {
                 throw new Error("Unable to check for new updates");
