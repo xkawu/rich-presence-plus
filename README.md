@@ -42,15 +42,15 @@ An **open source** project to custom your Discord Rich Presence **as you want**.
 | :--------------- | :---------------------------------------------------------------- | :------------- | :-------------------------------------------- |
 | `details`        | Rich Presence `details` field.                                    | string         | -                                             |
 | `state`          | Rich Presence `state` field.                                      | string         | -                                             |
-| `largeImageKey`  | Url to the image that you want to use (`.png`, `.jpg`, `.gif`...) | string         | Valid Image URL                               |
+| `largeImageKey`  | Url to the image that you want to use (`.png`, `.jpg`, `.gif`...) | string         | valid image URL                               |
 | `largeImageText` | Text that will appear when mouse hover the large image.           | string         | if largeImageKey is here                      |
-| `smallImageKey`  | Url to the image that you want to use (`.png`, `.jpg`, `.gif`...) | string [`URL`] | Valid Image URL                               |
+| `smallImageKey`  | Url to the image that you want to use (`.png`, `.jpg`, `.gif`...) | string [`URL`] | valid image URL                               |
 | `smallImageText` | Text that will appear when mouse hover the small image.           | string         | if smallImageKey is here                      |
-| `startTimestamp` | The time when you started the Presence                            | Date OR number | Has to be a Date or a unix number             |
-| `endTimestamp`   | The time when you will end the Presence                           | Date OR number | Has to be a Date or a unix number             |
-| `spectateSecret` | Secret code for your spectate session                             | string         | Cannot set one if you have buttons            |
-| `joinSecret`     | Secret code for your program/game session                         | string         | Cannot set one if you have buttons            |
-| `matchSecret`    | Secret code for your match session                                | string         | Cannot set one if you have buttons            |
+| `startTimestamp` | The time when you started the Presence                            | Date OR number | has to be a Date or a unix number             |
+| `endTimestamp`   | The time when you will end the Presence                           | Date OR number | has to be a Date or a unix number             |
+| `spectateSecret` | Secret code for your spectate session                             | string         | cannot set one if you have buttons            |
+| `joinSecret`     | Secret code for your program/game session                         | string         | cannot set one if you have buttons            |
+| `matchSecret`    | Secret code for your match session                                | string         | cannot set one if you have buttons            |
 | `partyId`        | Your party ID                                                     | string         | -                                             |
 | `partySize`      | This is used for like `1 of 5`, `1` is partySize                  | number         | to be visible, you need to have field `state` |
 | `partyMax`       | This is used for like `1 of 5`, `5` is partyMax                   | number         | to be visible, you need to have field `state` |
