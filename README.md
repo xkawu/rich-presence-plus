@@ -43,9 +43,9 @@ An **open source** project to custom your Discord Rich Presence **as you want**.
 | `details`        | Rich Presence `details` field.                                    | string         | -                                             |
 | `state`          | Rich Presence `state` field.                                      | string         | -                                             |
 | `largeImageKey`  | Url to the image that you want to use (`.png`, `.jpg`, `.gif`...) | string         | valid image URL                               |
-| `largeImageText` | Text that will appear when mouse hover the large image.           | string         | if largeImageKey is here                      |
+| `largeImageText` | Text that will appear when mouse hover the large image.           | string         | if `largeImageKey` is here                    |
 | `smallImageKey`  | Url to the image that you want to use (`.png`, `.jpg`, `.gif`...) | string [`URL`] | valid image URL                               |
-| `smallImageText` | Text that will appear when mouse hover the small image.           | string         | if smallImageKey is here                      |
+| `smallImageText` | Text that will appear when mouse hover the small image.           | string         | if `smallImageKey` is here                    |
 | `startTimestamp` | The time when you started the Presence                            | Date OR number | has to be a Date or a unix number             |
 | `endTimestamp`   | The time when you will end the Presence                           | Date OR number | has to be a Date or a unix number             |
 | `spectateSecret` | Secret code for your spectate session                             | string         | cannot set one if you have buttons            |
