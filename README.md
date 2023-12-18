@@ -38,24 +38,24 @@ An **open source** project to custom your Discord Rich Presence **as you want**.
 
 ### Table of fields
 
-| Field            | Desc                                                              | Type           | Limits              |
-| :--------------- | :---------------------------------------------------------------- | :------------- | :------------------ |
-| `details`        | Rich Presence `details` field.                                    | string         | Text length         |
-| `state`          | Rich Presence `state` field.                                      | string         | Text length         |
-| `largeImageKey`  | Url to the image that you want to use (`.png`, `.jpg`, `.gif`...) | string [`URL`] | ?                   |
-| `largeImageText` | Text that will appear when mouse hover the large image.           | string         | Text length         |
-| `smallImageKey`  | Url to the image that you want to use (`.png`, `.jpg`, `.gif`...) | string [`URL`] | ?                   |
-| `smallImageText` | Text that will appear when mouse hover the small image.           | string         | Text length         |
-| `startTimestamp` | The time when you started the Presence                            | Date OR number | Date                |
-| `endTimestamp`   | The time when you will end the Presence                           | Date OR number | Date                |
-| `spectateSecret` | Secret code for your spectate session                             | string         | ?                   |
-| `joinSecret`     | Secret code for your program/game session                         | string         | ?                   |
-| `matchSecret`    | Secret code for your match session                                | string         | ?                   |
-| `partyId`        | Your party ID                                                     | string         | ?                   |
-| `partySize`      | This is used for like `1 of 5`, `1` is partySize                  | number         | Numbers length      |
-| `partyMax`       | This is used for like `1 of 5`, `5` is partyMax                   | number         | Numbers length      |
-| `buttons`        | Buttons that is clickable on your profile                         | array          | 2 items (2 buttons) |
-| `instance`       | If it is an instance or not                                       | boolean        | /                   |
+| Field            | Desc                                                              | Type           | Condition                                     |
+| :--------------- | :---------------------------------------------------------------- | :------------- | :-------------------------------------------- |
+| `details`        | Rich Presence `details` field.                                    | string         | -                                             |
+| `state`          | Rich Presence `state` field.                                      | string         | -                                             |
+| `largeImageKey`  | Url to the image that you want to use (`.png`, `.jpg`, `.gif`...) | string         | Valid Image URL                               |
+| `largeImageText` | Text that will appear when mouse hover the large image.           | string         | if largeImageKey is here                      |
+| `smallImageKey`  | Url to the image that you want to use (`.png`, `.jpg`, `.gif`...) | string [`URL`] | Valid Image URL                               |
+| `smallImageText` | Text that will appear when mouse hover the small image.           | string         | if smallImageKey is here                      |
+| `startTimestamp` | The time when you started the Presence                            | Date OR number | Has to be a Date or a unix number             |
+| `endTimestamp`   | The time when you will end the Presence                           | Date OR number | Has to be a Date or a unix number             |
+| `spectateSecret` | Secret code for your spectate session                             | string         | Cannot set one if you have buttons            |
+| `joinSecret`     | Secret code for your program/game session                         | string         | Cannot set one if you have buttons            |
+| `matchSecret`    | Secret code for your match session                                | string         | Cannot set one if you have buttons            |
+| `partyId`        | Your party ID                                                     | string         | -                                             |
+| `partySize`      | This is used for like `1 of 5`, `1` is partySize                  | number         | to be visible, you need to have field `state` |
+| `partyMax`       | This is used for like `1 of 5`, `5` is partyMax                   | number         | to be visible, you need to have field `state` |
+| `buttons`        | Buttons that is clickable on your profile                         | array          | -                                             |
+| `instance`       | If it is an instance or not                                       | boolean        | -                                             |
 
 ### `buttons` array specifications
 
