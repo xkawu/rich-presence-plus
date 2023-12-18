@@ -5,23 +5,22 @@ const fs = require("fs");
 
 // Data stuff
 const intervalPresetsInMs = 15000; // DO NOT GO BELOW 15s OR U WILL BE RATE LIMITED VERY FAST
-const version = "v1.2.0";
 
+// Utils
+const ascii = require("./utils/asciis.js");
+const updater = require("./utils/updater.js");
+const config = require("./utils/config.js");
+
+console.log(updater.checkForUpdate());
+
+return;
 process.title = "Rich Presence +";
 const consoleKit = new ConsoleKit();
-
-function asciiTitle() {
-    console.log(
-        chalk.red(
-            "  ___ _    _      ___                               ___ _   _   _ ___ \r\n | _ (_)__| |_   | _ \\_ _ ___ ___ ___ _ _  __ ___  | _ \\ | | | | / __|\r\n |   / / _| ' \\  |  _/ '_/ -_|_-</ -_) ' \\/ _/ -_) |  _/ |_| |_| \\__ \\\r\n |_|_\\_\\__|_||_| |_| |_| \\___/__/\\___|_||_\\__\\___| |_| |____\\___/|___/\r\n                                                                      "
-        )
-    );
-}
 
 startup();
 async function startup() {
     console.clear();
-    asciiTitle();
+    console.log(ascii.title());
 
     consoleKit.comment(
         `Rich Presence +  :::  created by kxwu  :::  ${version}`
@@ -37,7 +36,8 @@ async function startup() {
         case "1":
             process.title = "[ STARTING UP ] - Rich Presence +";
             console.clear();
-            asciiTitle();
+            console.log(ascii.title());
+
             consoleKit.comment(
                 `Rich Presence +  :::  created by kxwu  :::  ${version}`
             );
@@ -60,84 +60,7 @@ async function startup() {
     }
 }
 
-function getPresets() {
-    try {
-        consoleKit.stopLoading();
-
-        console.clear();
-        asciiTitle();
-        consoleKit.comment(
-            `Rich Presence +  :::  created by kxwu  :::  ${version}`
-        );
-        console.log(" ");
-        consoleKit.startLoading("Loading presets...");
-
-        const dir = fs.readdirSync("./presets");
-        let dirs = dir.map((fileName) => (fileName = "./presets/" + fileName));
-        dirs = dirs.filter((path) => path.endsWith(".json"));
-
-        if (dirs.length === 0) {
-            throw new Error("No presets in folder");
-        } else {
-            consoleKit.stopLoading();
-
-            consoleKit.check(
-                `${chalk.green(`[${dirs.length}]`)} preset(s) has been found.`
-            );
-
-            return dirs;
-        }
-    } catch (e) {
-        if (e.message !== "No presets in folder") {
-            try {
-                fs.mkdirSync("./presets");
-            } catch (e) {
-                consoleKit.stopLoading();
-                consoleKit.x(
-                    'An error has occured when trying to create "presets" folder.'
-                );
-
-                process.exit();
-            }
-        }
-
-        const defaultPreset = {
-            details: "Rich Presence +",
-            largeImageKey: "https://cdn3.emoji.gg/emojis/9588-silver-star.png",
-            buttons: [
-                {
-                    label: "Rich Presence + Author",
-                    url: "https://github.com/xkawu",
-                },
-            ],
-        };
-
-        try {
-            fs.appendFileSync(
-                "./presets/config.json",
-                JSON.stringify(defaultPreset)
-            );
-        } catch (e) {
-            consoleKit.stopLoading();
-            consoleKit.x(
-                'An error has occured when trying to create "config.json" file.'
-            );
-
-            process.exit();
-        }
-
-        const dir = fs.readdirSync("./presets");
-        let dirs = dir.map((fileName) => (fileName = "./presets/" + fileName));
-        dirs = dirs.filter((path) => path.endsWith(".json"));
-
-        consoleKit.stopLoading();
-        consoleKit.check(
-            `${chalk.green(`[${dirs.length}]`)} preset(s) has been found.`
-        );
-
-        return dirs;
-    }
-}
+function getPresets() {}
 
 async function getAppId() {
     try {
@@ -263,7 +186,8 @@ async function startRPC() {
 
                     process.title = "[ CONNECTED ] - Rich Presence +";
                     console.clear();
-                    asciiTitle();
+                    console.log(ascii.title());
+
                     consoleKit.comment(
                         `Rich Presence +  :::  created by kxwu  :::  ${version}`
                     );
@@ -281,7 +205,8 @@ async function startRPC() {
             } else if (presets.length > 1) {
                 process.title = "[ CONNECTED ] - Rich Presence +";
                 console.clear();
-                asciiTitle();
+                console.log(ascii.title());
+
                 consoleKit.comment(
                     `Rich Presence +  :::  created by kxwu  :::  ${version}`
                 );
