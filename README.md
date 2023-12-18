@@ -20,7 +20,7 @@ An **open source** project to custom your Discord Rich Presence **as you want**.
 | `mode`         | The mode that you want to use                            | string | `static` or `dynamic`          |
 | `staticPreset` | If you want to set a specific Presence for `static` mode | path   | Should start with `./presets/` |
 
-### `modes` specifications
+### `mode` specifications
 
 -   `static`: This will set **only 1 presence**. It is "static".
 -   `dynamic`: This mode is like a "bot", but it is not a self-bot, **it's legal to us**e, it will chance after x seconds to whatever you want. To set it up, change the mode inside `config.json` to `dynamic`, it will go through each files inside the `presets` folder, **make sure that your Rich Presence presets files are correct**.
