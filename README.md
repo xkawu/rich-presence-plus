@@ -61,7 +61,7 @@ An **open source** project to custom your Discord Rich Presence **as you want**.
 
 _Note: You cannot set more than 2 buttons._
 | Field | Desc |
-| :----- | :---: |
+| :----- | :--- |
 | `label` | The text that will be on the button |
 | `url` | The link that will redirect the button when clicked |
 
