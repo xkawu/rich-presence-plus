@@ -6,8 +6,9 @@ An **open source** project to custom your Discord Rich Presence **as you want**.
 
 -   `git clone https://github.com/xkawu/rich-presence-plus`
 -   install [NodeJS](https://nodejs.org/en) and [NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
--   run `npm install` inside the folder
--   run `node .`
+-   run `cd rich-presence-plus`
+-   `npm install`
+-   `node .`
 
 ## `config.json`
 
