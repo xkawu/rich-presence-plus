@@ -49,9 +49,7 @@ const checkVersion = async () => {
 
     if (updateData.isUpToDate) {
         consoleKit.stopLoading(true);
-        consoleKit.check(
-            "Great! You have the last version of Rich Presence +."
-        );
+        consoleKit.check("Great! You have the last version of Rich Presence +");
 
         setTimeout(() => {
             home();

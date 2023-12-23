@@ -17,7 +17,7 @@ const startFolderMode = async () => {
     const presets = await presetsManager.getPresets();
     consoleKit.stopLoading(true);
     consoleKit.check(
-        `[${chalk.green(presets.length)}] preset(s) found inside "./presets".`
+        `[${chalk.green(presets.length)}] preset(s) found inside "./presets"`
     );
 
     consoleKit.startLoading("Connecting to Discord");
@@ -112,7 +112,7 @@ const startDevMode = async () => {
         consoleKit.check(
             `[${chalk.green(
                 presets.length
-            )}] preset(s) found inside "./presets.js".`
+            )}] preset(s) found inside "./presets.js"`
         );
 
         consoleKit.startLoading("Connecting to Discord");
