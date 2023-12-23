@@ -126,7 +126,7 @@ Here is an example when calling an API inside of it :
 
 ```js
 const preset = async () => {
-    const joke = fetch("https://api.chucknorris.io/jokes/random")
+    const joke = await fetch("https://api.chucknorris.io/jokes/random")
         .then((res) => res.json())
         .then((body) => {
             return body.value;
