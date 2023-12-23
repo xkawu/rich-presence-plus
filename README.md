@@ -14,27 +14,27 @@ An **open source** project to custom your Discord Rich Presence **as you want**.
 
 ### Table of fields
 
-| Field          | Desc                                                     | Type   | Limits                         |
-| :------------- | :------------------------------------------------------- | :----- | :----------------------------- |
-| `appId`        | Your Discord Dev Application ID                          | string | /                              |
-| `mode`         | The mode that you want to use                            | string | `static` or `dynamic`          |
-| `staticPreset` | If you want to set a specific Presence for `static` mode | path   | Should start with `./presets/` |
+| Field   | Desc                            | Type   | Value                  |
+| :------ | :------------------------------ | :----- | :--------------------- |
+| `appId` | Your Discord Dev Application ID | string | Discord Application ID |
+| `mode`  | The mode that you want to use   | string | `folder` or `dev`      |
 
 ### `mode` specifications
 
--   `static`: This will set **only 1 presence**. It is "static".
--   `dynamic`: This mode is like a "bot", but it is not a self-bot, **it's legal to us**e, it will chance after x seconds to whatever you want. To set it up, change the mode inside `config.json` to `dynamic`, it will go through each files inside the `presets` folder, **make sure that your Rich Presence presets files are correct**.
--   Template :
+-   `folder`: In this mode, Rich Presence + will go through every `.json` files that you have inside `presets` folder.
+-   `dev`: In this mode, you can do anything. You are the dev and you can put **anything** you want inside your preset. See below how to do it.
+
+Template :
 
 ```json
 {
     "appId": "Your Discord Dev Portal App id",
-    "mode": "'static' OR 'dynamic'",
+    "mode": "the mode",
     "staticPreset": "./presets/yourconfig.json"
 }
 ```
 
-## Presets
+## Preset Data
 
 ### Table of fields
 
@@ -91,4 +91,52 @@ Template:
     ],
     "instance": "boolean"
 }
+```
+
+## How to use `dev` mode ?
+
+To use `dev` mode, it is simple, if you want to display a data that changes from an API, display stuff from your computer etc... you can do it easly and EZ!
+
+### Basics
+
+It is inside `presets.js` that you have to code.
+
+An example of a really basic template :
+
+```js
+const preset = async () => {
+    return {
+        details: "Rich Presence +",
+        largeImageKey: "https://cdn3.emoji.gg/emojis/9588-silver-star.png",
+        buttons: [
+            {
+                label: "Rich Presence +",
+                url: "https://github.com/xkawu/rich-presence-plus",
+            },
+        ],
+    };
+};
+
+module.exports = { preset };
+```
+
+Note: Your function **needs to be exported** and **needs to be async** or it may not work or break in running time.
+
+Here is an example when calling an API inside of it :
+
+```js
+const preset = async () => {
+    const joke = fetch("https://api.chucknorris.io/jokes/random")
+        .then((res) => res.json())
+        .then((body) => {
+            return body.value;
+        });
+
+    return {
+        details: "Chuck Norris Joke time",
+        state: joke,
+    };
+};
+
+module.exports = { preset };
 ```
