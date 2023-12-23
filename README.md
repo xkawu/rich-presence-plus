@@ -22,7 +22,7 @@ An **open source** project to custom your Discord Rich Presence **as you want**.
 ### `mode` specifications
 
 -   `folder`: In this mode, Rich Presence + will go through every `.json` files that you have inside `presets` folder.
--   `dev`: In this mode, you can do anything. You are the dev and you can put **anything** you want inside your preset. See below how to do it.
+-   `dev`: In this mode, you can do anything. You are the dev and you can put **anything** you want inside your preset. [How to use](https://github.com/xkawu/rich-presence-plus?tab=readme-ov-file#how-to-use-dev-mode-).
 
 Template :
 
@@ -93,6 +93,10 @@ Template:
 }
 ```
 
+## How to use `folder` mode ?
+
+To use `folder` mode, you have to create a `.json` file inside `presets` folder with the name that you want. Then edit it as you want, put the data you like inside of it, but make sure to respect [The table of fields](https://github.com/xkawu/rich-presence-plus?tab=readme-ov-file#table-of-fields-1) !
+
 ## How to use `dev` mode ?
 
 To use `dev` mode, it is simple, if you want to display a data that changes from an API, display stuff from your computer etc... you can do it easly and EZ!
@@ -100,6 +104,9 @@ To use `dev` mode, it is simple, if you want to display a data that changes from
 ### Basics
 
 It is inside `presets.js` that you have to code.
+
+Your function **needs to be exported** and **needs to be async** or it may not work or break in running time.
+You can create the number of functions that you want, Rich Presence + will go through all of your functions that you exported.
 
 An example of a really basic template :
 
@@ -119,8 +126,6 @@ const preset = async () => {
 
 module.exports = { preset };
 ```
-
-Note: Your function **needs to be exported** and **needs to be async** or it may not work or break in running time.
 
 Here is an example when calling an API inside of it :
 
