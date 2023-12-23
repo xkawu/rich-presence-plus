@@ -149,6 +149,4 @@ module.exports = { preset };
 
 ### Wealthy Presence
 
-An alternative developed by sqmasep in TypeScript.
-
-[Go to project Github page](https://github.com/sqmasep/wealthy-presence)
+An alternative developed by sqmasep in TypeScript. [Go to project Github page](https://github.com/sqmasep/wealthy-presence)
