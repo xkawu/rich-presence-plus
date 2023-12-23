@@ -22,7 +22,7 @@ An **open source** project to custom your Discord Rich Presence **as you want**.
 ### `mode` specifications
 
 -   `folder`: The `presets` folder is **required**. [See how to use](https://github.com/xkawu/rich-presence-plus?tab=readme-ov-file#how-to-use-folder-mode-)
--   `dev`: You can do really anything with this mode. [See how to use](https://github.com/xkawu/rich-presence-plus?tab=readme-ov-file#how-to-use-dev-mode-)
+-   `dev`: You can do anything with this mode, from static to dynamic values from API. [See how to use](https://github.com/xkawu/rich-presence-plus?tab=readme-ov-file#how-to-use-dev-mode-)
 
 `config.json` template :
 
