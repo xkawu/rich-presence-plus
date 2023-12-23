@@ -1,10 +1,5 @@
 const { ConsoleKit } = require("@kawu/console-kit");
-const RPC = require("discord-rpc");
 const chalk = require("chalk");
-const fs = require("fs");
-
-// Data stuff
-const intervalPresetsInMs = 15000; // DO NOT GO BELOW 15s OR U WILL BE RATE LIMITED VERY FAST
 
 // Utils
 const ascii = require("./utils/asciis.js");
@@ -72,6 +67,7 @@ const checkVersion = async () => {
             "Visit https://github.com/xkawu/rich-presence-plus to get the update."
         );
 
+        await consoleKit.prompt("Hit [Enter] to close", true);
         process.exit();
     }
 };
