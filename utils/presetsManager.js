@@ -12,7 +12,7 @@ const getPresets = async () => {
             return dirs;
         }
     } catch (e) {
-        if (e.message !== "No presets in folder") {
+        if (e.message !== "no presets in folder") {
             try {
                 fs.mkdirSync("./presets");
             } catch (e) {
@@ -25,20 +25,20 @@ const getPresets = async () => {
             largeImageKey: "https://cdn3.emoji.gg/emojis/9588-silver-star.png",
             buttons: [
                 {
-                    label: "Rich Presence + Author",
-                    url: "https://github.com/xkawu",
+                    label: "Rich Presence +",
+                    url: "https://github.com/xkawu/rich-presence-plus",
                 },
             ],
         };
 
         try {
             fs.appendFileSync(
-                "./presets/config.json",
+                "./presets/preset.json",
                 JSON.stringify(defaultPreset)
             );
         } catch (e) {
             throw new Error(
-                'An error occurred when creating "./presets/config.json"'
+                'An error occurred when creating "./presets/preset.json"'
             );
         }
 

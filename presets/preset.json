@@ -1,0 +1,10 @@
+{
+    "details": "Rich Presence +",
+    "largeImageKey": "https://cdn3.emoji.gg/emojis/9588-silver-star.png",
+    "buttons": [
+        {
+            "label": "Rich Presence +",
+            "url": "https://github.com/xkawu/rich-presence-plus"
+        }
+    ]
+}
