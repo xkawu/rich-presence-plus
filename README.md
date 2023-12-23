@@ -144,3 +144,10 @@ const preset = async () => {
 
 module.exports = { preset };
 ```
+
+## Alternatives
+
+### Wealthy Presence
+
+An alternative developed by sqmasep in TypeScript.
+[Go to project Github page](https://github.com/sqmasep/wealthy-presence)
