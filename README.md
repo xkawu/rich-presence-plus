@@ -21,8 +21,8 @@ An **open source** project to custom your Discord Rich Presence **as you want**.
 
 ### `mode` specifications
 
--   `folder`: In this mode, Rich Presence + will go through every `.json` files that you have inside `presets` folder.
--   `dev`: In this mode, you can do anything. You are the dev and you can put **anything** you want inside your preset. [How to use](https://github.com/xkawu/rich-presence-plus?tab=readme-ov-file#how-to-use-dev-mode-).
+-   `folder`: In this mode, Rich Presence + will go through every `.json` files that you have inside `presets` folder. [How to use](https://github.com/xkawu/rich-presence-plus?tab=readme-ov-file#how-to-use-folder-mode-)
+-   `dev`: In this mode, you can do anything. You are the dev and you can put **anything** you want inside your preset. [How to use](https://github.com/xkawu/rich-presence-plus?tab=readme-ov-file#how-to-use-dev-mode-)
 
 Template :
 
