@@ -5,7 +5,7 @@ An **open source** project to custom your Discord Rich Presence **as you want**.
 # How to run Rich Presence + ?
 
 -   `git clone https://github.com/xkawu/rich-presence-plus`
--   install [NodeJS](https://nodejs.org/en)(NodeJS v20 or above) and [NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+-   install [NodeJS](https://nodejs.org/en) (NodeJS v20 or above) and [NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 -   run `cd rich-presence-plus`
 -   `npm install`
 -   execute `start.bat`
@@ -21,16 +21,15 @@ An **open source** project to custom your Discord Rich Presence **as you want**.
 
 ### `mode` specifications
 
--   `folder`: In this mode, Rich Presence + will go through every `.json` files that you have inside `presets` folder. [How to use](https://github.com/xkawu/rich-presence-plus?tab=readme-ov-file#how-to-use-folder-mode-)
--   `dev`: In this mode, you can do anything. You are the dev and you can put **anything** you want inside your preset. [How to use](https://github.com/xkawu/rich-presence-plus?tab=readme-ov-file#how-to-use-dev-mode-)
+-   `folder`: The `presets` folder is **required**. [See how to use](https://github.com/xkawu/rich-presence-plus?tab=readme-ov-file#how-to-use-folder-mode-)
+-   `dev`: You can do really anything with this mode. [See how to use](https://github.com/xkawu/rich-presence-plus?tab=readme-ov-file#how-to-use-dev-mode-)
 
-Template :
+`config.json` template :
 
 ```json
 {
     "appId": "Your Discord Dev Portal App id",
-    "mode": "the mode",
-    "staticPreset": "./presets/yourconfig.json"
+    "mode": "the mode"
 }
 ```
 
