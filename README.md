@@ -1,6 +1,6 @@
 # Rich Presence +
 
-An **open source** project to custom your Discord Rich Presence **as you want**.
+Rich Presence + is an lightweight, fast and reliable **open source** Javascript project, to custom your Discord Rich Presence **as you want**.
 
 # How to run Rich Presence + ?
 
