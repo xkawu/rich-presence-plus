@@ -86,12 +86,25 @@ const startFolderMode = async () => {
             consoleKit.stopLoading(true);
         } catch (e) {}
 
-        if (e.message === "connection closed") {
-            consoleKit.x("Application ID field in config.json is not valid.");
-        } else if (e.message === "RPC_CONNECTION_TIMEOUT") {
-            consoleKit.x("You have been timed out. Retry minimum after 15s.");
-            process.exit();
+        switch (e.message) {
+            case "connection closed":
+                consoleKit.x(
+                    "Application ID field in config.json is not valid."
+                );
+                break;
+            case "RPC_CONNECTION_TIMEOUT":
+                consoleKit.x(
+                    "You have been timed out. Retry minimum after 15s."
+                );
+                break;
+            case "Could not connect":
+                consoleKit.x(
+                    "Discord is not detected. Please install Discord or run it before starting Rich Presence Plus."
+                );
+                break;
         }
+
+        process.exit();
     });
 };
 
@@ -156,18 +169,28 @@ const startDevMode = async () => {
                 consoleKit.stopLoading(true);
             } catch (e) {}
 
-            if (e.message === "connection closed") {
-                consoleKit.x(
-                    "Application ID field in config.json is not valid."
-                );
-            } else if (e.message === "RPC_CONNECTION_TIMEOUT") {
-                consoleKit.x(
-                    "You have been timed out. Retry minimum after 15s."
-                );
-                process.exit();
+            switch (e.message) {
+                case "connection closed":
+                    consoleKit.x(
+                        "Application ID field in config.json is not valid."
+                    );
+                    break;
+                case "RPC_CONNECTION_TIMEOUT":
+                    consoleKit.x(
+                        "You have been timed out. Retry minimum after 15s."
+                    );
+                    break;
+                case "Could not connect":
+                    consoleKit.x(
+                        "Discord is not detected. Please install Discord or run it before starting Rich Presence Plus."
+                    );
+                    break;
             }
+
+            process.exit();
         });
     } catch (e) {
+        console.log(e);
         throw new Error(
             "presets.js at root of project doesn't exist, please follow https://github.com/xkawu/rich-presence-plus"
         );
