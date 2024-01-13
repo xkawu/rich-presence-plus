@@ -5,7 +5,7 @@ Rich Presence + is an lightweight, fast and reliable **open source** Javascript 
 # How to run Rich Presence + ?
 
 **Do not forget this option, you HAVE to activate this to get Rich Presence Plus working.**
-![Don't forget this](https://raw.githubusercontent.com/xkawu/rich-presence-plus/main/imgs/required.png)
+![Required stuff](https://raw.githubusercontent.com/xkawu/rich-presence-plus/main/imgs/required.png)
 
 -   `git clone https://github.com/xkawu/rich-presence-plus`
 -   install [NodeJS](https://nodejs.org/en) (NodeJS v20 or above) and [NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
