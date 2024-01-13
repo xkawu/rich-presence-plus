@@ -1,1 +1,5 @@
+@echo off
+
 node .
+
+pause
