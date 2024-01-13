@@ -168,7 +168,6 @@ const startDevMode = async () => {
             }
         });
     } catch (e) {
-        console.log(e);
         throw new Error(
             "presets.js at root of project doesn't exist, please follow https://github.com/xkawu/rich-presence-plus"
         );
